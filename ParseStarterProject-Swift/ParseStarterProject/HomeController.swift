@@ -5,11 +5,12 @@
 
 
 import UIKit
-
+import Parse
 class HomeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -18,11 +19,22 @@ class HomeController: UIViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        self.performSegueWithIdentifier("goLogin", sender: self)
+        if (PFUser.currentUser()?.username == nil) {
+            self.performSegueWithIdentifier("goLogin", sender: self)
+        }
+
+        //self.performSegueWithIdentifier("goLogin", sender: self)
     }
     
-    @IBAction func logoutTapped(sender: UIButton) {
+    @IBAction func logoutTapped(sender: AnyObject) {
+        PFUser.logOut()
+        print(PFUser.currentUser()?.username)
         self.performSegueWithIdentifier("goLogin", sender: self)
     }
+//    @IBAction func logoutTapped(sender: UIButton) {
+//        PFUser.logOut()
+//        print(PFUser.currentUser()?.username)
+//        //self.performSegueWithIdentifier("logoutSuccess", sender: self)
+//    }
 }
 

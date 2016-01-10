@@ -29,9 +29,9 @@
 		1B73FC691C3F4C2100AA417D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B73FC681C3F4C2100AA417D /* StoreKit.framework */; };
 		1B73FC6B1C3F4D7900AA417D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B73FC6A1C3F4D7900AA417D /* Social.framework */; };
 		1B73FC6D1C3F4D7E00AA417D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B73FC6C1C3F4D7E00AA417D /* Accounts.framework */; };
+		1B9687F71C41AE6C003A95A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9687F61C41AE6C003A95A2 /* Main.storyboard */; };
 		1BE3832D1C3DC1CC00D70298 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BE3832C1C3DC1CC00D70298 /* Info.plist */; };
 		1BE3832F1C3DEED900D70298 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE3832E1C3DEED900D70298 /* LoginController.swift */; };
-		814C3ACA1B69877600E307BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC61B69877600E307BB /* Main.storyboard */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814A1A49DA1800E65899 /* AppDelegate.swift */; };
 		81BA814D1A49DA1800E65899 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814C1A49DA1800E65899 /* HomeController.swift */; };
@@ -66,9 +66,9 @@
 		1B73FC681C3F4C2100AA417D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1B73FC6A1C3F4D7900AA417D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		1B73FC6C1C3F4D7E00AA417D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		1B9687F61C41AE6C003A95A2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1BE3832C1C3DC1CC00D70298 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BE3832E1C3DEED900D70298 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		814C3AC71B69877600E307BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81BA81451A49DA1800E65899 /* ParseStarterProject-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParseStarterProject-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,9 +152,9 @@
 		81BA81471A49DA1800E65899 /* ParseStarterProject */ = {
 			isa = PBXGroup;
 			children = (
+				1B9687F61C41AE6C003A95A2 /* Main.storyboard */,
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814C1A49DA1800E65899 /* HomeController.swift */,
-				814C3AC61B69877600E307BB /* Main.storyboard */,
 				1BE3832E1C3DEED900D70298 /* LoginController.swift */,
 				1B73FC541C3F40D100AA417D /* LoginViewController.swift */,
 			);
@@ -238,6 +238,7 @@
 				TargetAttributes = {
 					81BA81441A49DA1800E65899 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = WRM3Z9F4EC;
 					};
 				};
 			};
@@ -267,7 +268,7 @@
 				1B73FC501C3F275000AA417D /* billabong.ttf in Resources */,
 				1BE3832D1C3DC1CC00D70298 /* Info.plist in Resources */,
 				1B0C1BAB1C3DB5E10019074C /* FacebookSDKStrings.bundle in Resources */,
-				814C3ACA1B69877600E307BB /* Main.storyboard in Resources */,
+				1B9687F71C41AE6C003A95A2 /* Main.storyboard in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
 				1B73FC511C3F275000AA417D /* FreightSans Book.ttf in Resources */,
 			);
@@ -305,18 +306,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		814C3AC61B69877600E307BB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				814C3AC71B69877600E307BB /* Base */,
-			);
-			name = Main.storyboard;
-			path = ../Resources;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		81BA81621A49DA1800E65899 /* Debug */ = {
@@ -403,14 +392,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DoggIt;
+				PRODUCT_BUNDLE_IDENTIFIER = QFY;
 				PRODUCT_NAME = "ParseStarterProject-Swift";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -419,14 +411,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DoggIt;
+				PRODUCT_BUNDLE_IDENTIFIER = QFY;
 				PRODUCT_NAME = "ParseStarterProject-Swift";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

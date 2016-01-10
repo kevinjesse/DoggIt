@@ -8,8 +8,7 @@
 
 import UIKit
 import Parse
-//import FBSDKCoreKit
-//import FBSDKLoginKit
+
 import ParseFacebookUtilsV4
 import ParseTwitterUtils
 
@@ -17,8 +16,34 @@ import ParseTwitterUtils
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+
+
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        Parse.enableLocalDatastore()
+       // let defaultACL = PFACL();
+        // If you would like all objects to be private by default, remove this line.
+//        defaultACL.publicReadAccess = true
+//        
+//        PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser:true)
+        
+        if application.applicationState != UIApplicationState.Background {
+            // Track an app open here if we launch with a push, unless
+            // "content_available" was used to trigger a background push (introduced in iOS 7).
+            // In that case, we skip tracking here to avoid double counting the app-open.
+            
+            let preBackgroundPush = !application.respondsToSelector("backgroundRefreshStatus")
+            let oldPushHandlerOnly = !self.respondsToSelector("application:didReceiveRemoteNotification:fetchCompletionHandler:")
+            var noPushPayload = false;
+            if let options = launchOptions {
+                noPushPayload = options[UIApplicationLaunchOptionsRemoteNotificationKey] != nil;
+            }
+            if (preBackgroundPush || oldPushHandlerOnly || noPushPayload) {
+                PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+            }
+        }
+
+        
         Parse.setApplicationId("Z74UstNz9MKBVGwGlxHceu4AjVcsIvZVQu5SUObt", clientKey:"rC23AgPbmtDAAtj6fdlY3kRegGjNR10wQLADOfUq")
             PFTwitterUtils.initializeWithConsumerKey("pLHBW3n5vXw5aSHN6OZkKlvx8", consumerSecret:"qwgRXe4zDW9nwx7fEKBTvolrsGR4zImcFG3ZbXRuHp8VeuQEU1")
                 PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions);
@@ -32,6 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         FBSDKAppEvents.activateApp()
     }
+    
+    
     
 }
 

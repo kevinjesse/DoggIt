@@ -32,7 +32,7 @@
                                 <rect key="frame" x="176" y="301" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
-                                    <segue destination="rv8-bT-m3P" kind="presentation" modalTransitionStyle="flipHorizontal" id="C2R-Yo-7KD"/>
+                                    <action selector="logoutTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F43-11-pT7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -93,6 +93,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="7Ja-cx-FEd"/>
-        <segue reference="Ey9-JA-5dX"/>
     </inferredMetricsTieBreakers>
 </document>
