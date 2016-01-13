@@ -10,13 +10,6 @@
 import Parse
 import ParseUI
 import Foundation
-
-import UIKit
-
-import Foundation
-
-
-
 import UIKit
 
 class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
@@ -70,9 +63,6 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         print("successful login")
         //presentLoggedInAlert()
     }
-    
-
-
 
     func presentLoggedInAlert() {
         //print("done")
