@@ -62,8 +62,20 @@
                     <view key="view" contentMode="scaleToFill" id="Sv6-Da-pCa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="ECd-GJ-LnL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ECd-GJ-LnL" firstAttribute="top" secondItem="Sv6-Da-pCa" secondAttribute="top" id="EGL-2A-mEN"/>
+                            <constraint firstAttribute="trailing" secondItem="ECd-GJ-LnL" secondAttribute="trailing" id="bhI-RF-oVC"/>
+                            <constraint firstItem="ECd-GJ-LnL" firstAttribute="leading" secondItem="Sv6-Da-pCa" secondAttribute="leading" id="fwW-pR-NFM"/>
+                            <constraint firstItem="ECd-GJ-LnL" firstAttribute="bottom" secondItem="Gdj-TX-Hys" secondAttribute="top" id="jcg-JV-CgS"/>
+                        </constraints>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginSuccess" modalTransitionStyle="flipHorizontal" id="7Ja-cx-FEd"/>
                     </connections>
@@ -91,6 +103,9 @@
             <point key="canvasLocation" x="-1891.875" y="-419.36619718309851"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="100" height="178"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7Ja-cx-FEd"/>
     </inferredMetricsTieBreakers>

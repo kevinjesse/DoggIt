@@ -28,7 +28,7 @@ class HomeController: UIViewController {
     
     @IBAction func logoutTapped(sender: AnyObject) {
         PFUser.logOut()
-        print(PFUser.currentUser()?.username)
+        //print(PFUser.currentUser()?.username)
         self.performSegueWithIdentifier("goLogin", sender: self)
     }
 //    @IBAction func logoutTapped(sender: UIButton) {
