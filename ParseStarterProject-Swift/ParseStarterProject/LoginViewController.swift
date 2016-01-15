@@ -14,6 +14,7 @@ import UIKit
 
 class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let loginViewController = PFLogInViewController()
     var backgroundImage : UIImageView!;
     
@@ -23,7 +24,7 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         if (PFUser.currentUser() == nil) {
             //delegate login controller
             loginViewController.delegate = self
-
+            
             //set up login controller buttons
             loginViewController.fields = [.UsernameAndPassword , .LogInButton, .PasswordForgotten, .SignUpButton,  .Facebook, .Twitter]
             loginViewController.logInView?.logo = customizeTitle()
@@ -38,7 +39,7 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
             //set up sign up controller buttons
             loginViewController.signUpController?.signUpView?.logo = customizeTitle()
             loginViewController.signUpController?.signUpView?.usernameField?.backgroundColor = UIColor(white: 1, alpha: 0.8)
-            loginViewController.signUpController?.signUpView?.passwordField?.backgroundColor = UIColor(white: 1, alpha: 0.8)       
+            loginViewController.signUpController?.signUpView?.passwordField?.backgroundColor = UIColor(white: 1, alpha: 0.8)
             loginViewController.signUpController?.signUpView?.dismissButton!.setTitleColor(UIColor(white: 1, alpha: 1), forState: .Normal)
             customizeButton(loginViewController.signUpController?.signUpView?.signUpButton!)
             
@@ -56,20 +57,41 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
             //set modal transitions
             self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
             loginViewController.signUpController?.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-            
-//            loginViewController.signUpController?.signUpView?.dismissButton!.setTitle("Already signed up?", forState: .Normal)
-//            loginViewController.signUpController?.signUpView?.dismissButton!.setImage(nil, forState: .Normal)
-//            let dismissButtonFrame = loginViewController.signUpController?.signUpView!.dismissButton!.frame
-//            loginViewController.signUpController?.signUpView?.dismissButton!.frame = CGRectMake(0, (loginViewController.signUpController?.signUpView!.signUpButton!.frame.origin.y)! + (loginViewController.signUpController?.signUpView!.signUpButton!.frame.height)! + 16.0,  (loginViewController.signUpController?.signUpView!.frame.width)!,  dismissButtonFrame!.height)
-            
-            //finally present the controller
-            
-            
             self.presentViewController(loginViewController, animated: false, completion: nil)
         } else {
-            //debug
-            print("segue to home")
-            self.performSegueWithIdentifier("loginSuccess", sender: self)
+            activityIndicator.startAnimating()
+            var admin = false
+            let query = PFQuery(className: "_User")
+            query.whereKey("objectId", equalTo: (PFUser.currentUser()?.objectId)!)
+            query.findObjectsInBackgroundWithBlock {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                if error == nil {
+                    // Do something with the found objects
+                    if let objects = objects {
+                        for object in objects {
+                            admin = (object["admin"] as! Bool?)!
+                        }
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        if (admin) {
+                            self.performSegueWithIdentifier("goAdmin", sender: self)
+                        }else {
+                            self.performSegueWithIdentifier("goHome", sender: self)
+                        }
+                        self.activityIndicator.stopAnimating()
+                    }
+                } else {
+                    // Log details of the failure
+                    print("Error: \(error!) \(error!.userInfo)")
+                }
+            }
+            
+            
+            
+            
+            
         }
     }
     
@@ -81,15 +103,15 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser){
         print("successful signup")
         
-//        user["admin"] = false
-//        user.saveInBackgroundWithBlock() {
-//            (success: Bool, error: NSError?) -> Void in
-//            if (success) {
-//                print("successfully set admin")
-//            }else {
-//                print("failed to update admin")
-//            }
-//        }
+        //        user["admin"] = false
+        //        user.saveInBackgroundWithBlock() {
+        //            (success: Bool, error: NSError?) -> Void in
+        //            if (success) {
+        //                print("successfully set admin")
+        //            }else {
+        //                print("failed to update admin")
+        //            }
+        //        }
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
