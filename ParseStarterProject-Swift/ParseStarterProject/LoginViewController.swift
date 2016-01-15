@@ -21,7 +21,6 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         super.viewDidAppear(animated)
         
         if (PFUser.currentUser() == nil) {
-            
             //delegate login controller
             loginViewController.delegate = self
 
@@ -64,6 +63,8 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
 //            loginViewController.signUpController?.signUpView?.dismissButton!.frame = CGRectMake(0, (loginViewController.signUpController?.signUpView!.signUpButton!.frame.origin.y)! + (loginViewController.signUpController?.signUpView!.signUpButton!.frame.height)! + 16.0,  (loginViewController.signUpController?.signUpView!.frame.width)!,  dismissButtonFrame!.height)
             
             //finally present the controller
+            
+            
             self.presentViewController(loginViewController, animated: false, completion: nil)
         } else {
             //debug
@@ -74,21 +75,26 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         print("successful login")
-        //self.performSegueWithIdentifier("loginSuccess", sender: self)
         self.dismissViewControllerAnimated(false, completion: nil)
-        
-        //presentLoggedInAlert()
     }
     
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser){
         print("successful signup")
-        //self.performSegueWithIdentifier("loginSuccess", sender: self)
+        
+//        user["admin"] = false
+//        user.saveInBackgroundWithBlock() {
+//            (success: Bool, error: NSError?) -> Void in
+//            if (success) {
+//                print("successfully set admin")
+//            }else {
+//                print("failed to update admin")
+//            }
+//        }
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     func customizeButton(button: UIButton!) {
         button.setBackgroundImage(nil, forState: .Normal)
-        //button.backgroundColor = UIColor.clearColor()
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.whiteColor().CGColor

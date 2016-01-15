@@ -6,7 +6,7 @@
 
 import UIKit
 import Parse
-class HomeController: UIViewController {
+class HomeController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +26,11 @@ class HomeController: UIViewController {
         //self.performSegueWithIdentifier("goLogin", sender: self)
     }
     
-    @IBAction func logoutTapped(sender: AnyObject) {
-        PFUser.logOut()
-        //print(PFUser.currentUser()?.username)
-        self.performSegueWithIdentifier("goLogin", sender: self)
-    }
+//    @IBAction func logoutTapped(sender: AnyObject) {
+//        PFUser.logOut()
+//        //print(PFUser.currentUser()?.username)
+//        self.performSegueWithIdentifier("goLogin", sender: self)
+//    }
 //    @IBAction func logoutTapped(sender: UIButton) {
 //        PFUser.logOut()
 //        print(PFUser.currentUser()?.username)
