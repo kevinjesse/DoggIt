@@ -6,8 +6,12 @@
 
 import UIKit
 import Parse
-class HomeController: UIViewController {
+class AccountController: UIViewController {
     
+    @IBAction func logout(sender: UIButton) {
+        PFUser.logOut()
+        self.performSegueWithIdentifier("goLogin", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 //        var admin = false
@@ -43,41 +47,7 @@ class HomeController: UIViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        if (PFUser.currentUser()?.username == nil) {
-            self.performSegueWithIdentifier("goLogin", sender: self)
-        }else {
-             var admin = false
-                let query = PFQuery(className: "_User")
-                query.whereKey("objectId", equalTo: (PFUser.currentUser()?.objectId)!)
-                query.findObjectsInBackgroundWithBlock {
-                    (objects: [PFObject]?, error: NSError?) -> Void in
-                    
-                    if error == nil {
-                        // Do something with the found objects
-                        if let objects = objects {
-                            for object in objects {
-                                admin = (object["admin"] as! Bool?)!
-                            }
-                        }
-                        
-                        
-                        dispatch_async(dispatch_get_main_queue()) {
-//                            if (admin) {
-//                                self.performSegueWithIdentifier("goAdmin", sender: self)
-//                            }else {
-//                                self.performSegueWithIdentifier("goHome", sender: self)
-//                            }
-                            self.performSegueWithIdentifier("goHome", sender: self)
-                        }
-                    } else {
-                        // Log details of the failure
-                        print("Error: \(error!) \(error!.userInfo)")
-                    }
-                }
 
-        }
-
-        //self.performSegueWithIdentifier("goLogin", sender: self)
     }
     
 

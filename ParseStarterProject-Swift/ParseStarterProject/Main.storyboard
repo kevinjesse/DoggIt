@@ -39,10 +39,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="OvB-0i-hem" kind="relationship" relationship="viewControllers" id="KOq-vh-whf"/>
+                        <segue destination="OvB-0i-hem" kind="relationship" relationship="viewControllers" id="wIS-Ui-ZTT"/>
                         <segue destination="yKK-kb-INd" kind="relationship" relationship="viewControllers" id="vTS-DY-29W"/>
                         <segue destination="ffe-uf-MVu" kind="relationship" relationship="viewControllers" id="Sfl-hI-dTW"/>
                         <segue destination="MAo-O5-Grc" kind="relationship" relationship="viewControllers" id="Xmg-oX-2N0"/>
+                        <segue destination="20H-1x-990" kind="relationship" relationship="viewControllers" id="i1B-kH-sSo"/>
+                        <segue destination="qyU-PN-SFO" kind="relationship" relationship="viewControllers" id="q75-Pa-lP0"/>
+                        <segue destination="5FL-ia-1Ua" kind="relationship" relationship="viewControllers" id="gZL-AR-Zbv"/>
+                        <segue destination="qps-bw-bMb" kind="relationship" relationship="viewControllers" id="N92-00-lmq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRa-EP-Lct" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -185,7 +189,7 @@
         <!--Account-->
         <scene sceneID="1hg-Ba-e2d">
             <objects>
-                <viewController id="20H-1x-990" sceneMemberID="viewController">
+                <viewController id="20H-1x-990" customClass="AccountController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6fU-iI-ITY"/>
                         <viewControllerLayoutGuide type="bottom" id="8Nq-3P-143"/>
@@ -193,27 +197,104 @@
                     <view key="view" contentMode="scaleToFill" id="hZf-A4-zJX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGe-hZ-iAD">
+                                <rect key="frame" x="276" y="444" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="20H-1x-990" eventType="touchUpInside" id="yrH-qS-eko"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Nq-3P-143" firstAttribute="top" secondItem="NGe-hZ-iAD" secondAttribute="bottom" constant="77" id="RpA-IK-NBt"/>
+                            <constraint firstItem="NGe-hZ-iAD" firstAttribute="centerX" secondItem="hZf-A4-zJX" secondAttribute="centerX" id="hN7-mX-WW6"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="Account" id="WUy-bq-tYd"/>
+                    <connections>
+                        <segue destination="rv8-bT-m3P" kind="presentation" identifier="goLogin" modalTransitionStyle="flipHorizontal" id="wRc-cL-SfG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOQ-YJ-UZr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-393" y="-11"/>
         </scene>
+        <!--Inventory-->
+        <scene sceneID="PnO-eK-oJj">
+            <objects>
+                <viewController id="5FL-ia-1Ua" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8is-dc-p25"/>
+                        <viewControllerLayoutGuide type="bottom" id="5oN-Fa-tqu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lg8-TA-WTp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Inventory" image="Box Filled-50" id="rk1-Ju-a2a"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2o8-j5-7KH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-353" y="745"/>
+        </scene>
+        <!--Transactions-->
+        <scene sceneID="Cpl-kh-zs3">
+            <objects>
+                <viewController id="qyU-PN-SFO" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HcX-YJ-3Dt"/>
+                        <viewControllerLayoutGuide type="bottom" id="fgD-JN-5cY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6CI-H7-52S">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Transactions" image="Bank Cards-50" id="MX4-su-Jfo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g83-Un-CyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311" y="745"/>
+        </scene>
+        <!--Categories-->
+        <scene sceneID="hSO-Wg-pNg">
+            <objects>
+                <viewController id="qps-bw-bMb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="egS-HR-6F5"/>
+                        <viewControllerLayoutGuide type="bottom" id="5al-ko-T0z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7j9-SJ-Rgb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Categories" image="List-50" id="cVx-bv-Kzc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Rg-4n-1OO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="939" y="745"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Account" width="25" height="25"/>
+        <image name="Bank Cards-50" width="25" height="25"/>
+        <image name="Box Filled-50" width="25" height="25"/>
         <image name="Categorize-50" width="25" height="25"/>
         <image name="Curtains-50" width="25" height="25"/>
+        <image name="List-50" width="25" height="25"/>
         <image name="Pacifier-50" width="25" height="25"/>
         <image name="Sheets-50" width="25" height="25"/>
         <image name="bg" width="100" height="178"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LSh-Rf-fIJ"/>
-        <segue reference="kyk-zS-4pE"/>
-        <segue reference="fgg-RV-445"/>
-        <segue reference="VS9-eg-W2u"/>
+        <segue reference="wIS-Ui-ZTT"/>
+        <segue reference="Xmg-oX-2N0"/>
+        <segue reference="vTS-DY-29W"/>
+        <segue reference="Sfl-hI-dTW"/>
+        <segue reference="i1B-kH-sSo"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -60,17 +60,24 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
             self.presentViewController(loginViewController, animated: false, completion: nil)
         } else {
             activityIndicator.startAnimating()
-            var admin = false
+            
             let query = PFQuery(className: "_User")
             query.whereKey("objectId", equalTo: (PFUser.currentUser()?.objectId)!)
             query.findObjectsInBackgroundWithBlock {
                 (objects: [PFObject]?, error: NSError?) -> Void in
                 
                 if error == nil {
+                    var admin = Bool()
                     // Do something with the found objects
                     if let objects = objects {
                         for object in objects {
-                            admin = (object["admin"] as! Bool?)!
+                            if (object["admin"] is Bool) {
+                                admin = object["admin"] as! Bool
+                                print(admin)
+                            }
+                            else {
+                                // obj is not a string array
+                            }
                         }
                     }
                     
@@ -102,16 +109,6 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser){
         print("successful signup")
-        
-        //        user["admin"] = false
-        //        user.saveInBackgroundWithBlock() {
-        //            (success: Bool, error: NSError?) -> Void in
-        //            if (success) {
-        //                print("successfully set admin")
-        //            }else {
-        //                print("failed to update admin")
-        //            }
-        //        }
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
